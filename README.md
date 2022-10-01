@@ -72,8 +72,7 @@ C:\Users\(your pc name)\AppData\Roaming\webdrivers
 
 ## Authors
 
-Riadh Azzoun
-[@riad-azz](https://github.com/riad-azz)
+Riadh Azzoun - [@riad-azz](https://github.com/riad-azz)
 
 ## Version History
 
