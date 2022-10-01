@@ -21,7 +21,7 @@ setup(
     install_requires=["packaging", "requests"],
     keywords=['python', 'selenium', 'web', 'browser', 'webdriver installer', 'webdriver', "download webdriver"],
     classifiers=[
-        "Development Status :: 1 - Released",
+        "Development Status :: 1 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Microsoft :: Windows",
