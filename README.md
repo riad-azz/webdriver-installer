@@ -76,7 +76,7 @@ Riadh Azzoun - [@riad-azz](https://github.com/riad-azz)
 
 ## Version History
 
-* 0.0.1
+* 0.0.2
     * Initial Release
     * Available web drivers : Firefox - Google Chrome - Opera - Microsoft Edge
 
