@@ -1,13 +1,14 @@
-from setuptools import setup, find_packages
+import codecs
 import os
+
+from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-
 VERSION = '0.0.1'
 DESCRIPTION = 'Download and install different web drivers'
-LONG_DESCRIPTION = 'A package that will help you to download and save the latest versions of web drivers.'
-
+with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+    LONG_DESCRIPTION = "\n" + fh.read()
 
 setup(
     name="webdriver_installer",
@@ -21,7 +22,7 @@ setup(
     install_requires=["packaging", "requests"],
     keywords=['python', 'selenium', 'web', 'browser', 'webdriver installer', 'webdriver', "download webdriver"],
     classifiers=[
-        "Development Status :: 1 - Alpha",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Microsoft :: Windows",
