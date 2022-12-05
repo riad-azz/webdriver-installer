@@ -29,24 +29,25 @@ from webdriver_installer import FireFox
 firefox = FireFox()
 firefox.install()
 ```
+_the install() function returns the installed driver path as a string_
 
-## Help
-
-* How to get the installer driver path
+* How to get the installed driver path
 ```python
 from webdriver_installer import FireFox
 
 firefox = FireFox()
 driver_path = firefox.path
 ```
+_The driver will be installed automatically if it wasn't found_
 
-* Some web drivers have both 32-bit and 64-bit and you can pick by using _(default is 32-bit)_
+* Some web drivers have both 32-bit and 64-bit 
 ```python
 from webdriver_installer import FireFox
 
 firefox = FireFox(bit=64)
 firefox.install()
 ```
+_the default is 32-bit_
 
 * How to uninstall a driver
 ```python
@@ -56,7 +57,7 @@ firefox = FireFox()
 firefox.uninstall()
 ```
 
-* How to uninstall all drivers
+* How to uninstall all the drivers
 ```python
 import webdriver_installer
 
