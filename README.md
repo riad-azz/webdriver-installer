@@ -4,12 +4,18 @@ Download and install different web drivers
 
 ## Description
 
-A package that will help you download and save the latest versions of web drivers.
+A package that will help you download and save the latest versions of web drivers (geckodriver, chromedriver, edgedriver, operdriver).
 
 ## Getting Started
 
 ### Installing
 
+* Using PyPI
+```python
+pip install webdriver-installer
+```
+
+* Using Github
 ```python
 pip install git+https://github.com/riad-azz/webdriver-installer.git
 ```
