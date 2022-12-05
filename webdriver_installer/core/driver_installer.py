@@ -9,11 +9,12 @@ from webdriver_installer.utils import user_agent, print_error, print_warning, pr
 # --- Setup the install path ---
 USERNAME = os.getlogin()
 USER_PATH = f'C:/Users/{USERNAME}/AppData/Roaming/webdrivers/'
-if not os.path.exists(USER_PATH):
-    os.makedirs(USER_PATH)
 
 
 def uninstall():
+    if not os.path.exists(USER_PATH):
+        print('No drivers installed found')
+        return
     shutil.rmtree(USER_PATH)
     print(f"All web drivers have been removed successfully.")
 
@@ -27,8 +28,6 @@ class DriverInstaller:
         self.base_url = base_url
         self.version_url = version_url
         self.driver_dir = os.path.join(self.SAVE_PATH, self.name + '_folder/')
-        if not os.path.exists(self.driver_dir):
-            os.makedirs(self.driver_dir)
         self.version_dir = os.path.join(self.driver_dir, 'version')
         self.curr_driver = None
 
@@ -44,14 +43,17 @@ class DriverInstaller:
             bit = str(bit)
         else:
             bit = str(bit)
-        # -- Vars --
+        # -- Setup --
+        if not os.path.exists(USER_PATH):
+            os.makedirs(USER_PATH)
+        if not os.path.exists(self.driver_dir):
+            os.makedirs(self.driver_dir)
         filename = self.filename + bit + '.exe'
         self.curr_driver = filename
         # -- Check current version --
         curr_version = self.current_version(bit)
         latest_version = self.latest_version()
         if self.is_latest_version(current=curr_version, latest=latest_version):
-            print(f'You already have the latest version of {self.name}-{bit}bit installed ({latest_version})')
             return self.path
         print(f'Installing {self.name}-{bit}bit version {latest_version}...')
         # -- Download the driver zip file --
@@ -138,6 +140,9 @@ class DriverInstaller:
             f.write(version)
 
     def uninstall(self):
+        if not os.path.exists(self.driver_dir):
+            print(f"{self.name} is not installed.")
+            return
         shutil.rmtree(self.driver_dir)
         print(f"{self.name} has been removed successfully.")
 
