@@ -50,6 +50,13 @@ firefox = FireFox()
 firefox.uninstall()
 ```
 
+* How to uninstall all drivers
+```python
+import webdriver_installer
+
+webdriver_installer.uninstall()
+```
+
 * The default path for saving the web drivers
 ```python
 C:\Users\(your pc name)\AppData\Roaming\webdrivers
