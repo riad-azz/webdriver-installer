@@ -1,7 +1,7 @@
 import os
+import shutil
 import sys
 from zipfile import ZipFile
-
 import requests
 from packaging.version import parse as parse_version
 from webdriver_installer.utils import user_agent, print_error, print_warning, print_green
@@ -11,6 +11,11 @@ USERNAME = os.getlogin()
 USER_PATH = f'C:/Users/{USERNAME}/AppData/Roaming/webdrivers/'
 if not os.path.exists(USER_PATH):
     os.makedirs(USER_PATH)
+
+
+def uninstall():
+    shutil.rmtree(USER_PATH)
+    print(f"All web drivers have been removed successfully.")
 
 
 class DriverInstaller:
@@ -48,7 +53,7 @@ class DriverInstaller:
         if self.is_latest_version(current=curr_version, latest=latest_version):
             print(f'You already have the latest version of {self.name}-{bit}bit installed ({latest_version})')
             return self.path
-        print(f'Driver {self.name}-{bit}bit version {latest_version} found...')
+        print(f'Installing {self.name}-{bit}bit version {latest_version}...')
         # -- Download the driver zip file --
         download_url = self.get_download_url(version=latest_version, bit=bit)
         zip_file_path = self.download(url=download_url, version=latest_version)
@@ -131,6 +136,10 @@ class DriverInstaller:
         version_file = self.version_dir + bit
         with open(version_file, "w") as f:
             f.write(version)
+
+    def uninstall(self):
+        shutil.rmtree(self.driver_dir)
+        print(f"{self.name} has been removed successfully.")
 
     @staticmethod
     def exe_from_zip(zip_path, file_path) -> None:
