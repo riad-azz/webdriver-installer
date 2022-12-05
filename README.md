@@ -11,7 +11,7 @@ A package that will help you download and save the latest versions of web driver
 ### Installing
 
 ```python
-pip install webdriver-installer
+pip install git+https://github.com/riad-azz/webdriver-installer.git
 ```
 
 ### Executing program
