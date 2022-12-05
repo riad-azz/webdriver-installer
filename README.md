@@ -42,8 +42,6 @@ firefox = FireFox(bit=64)
 firefox.install()
 ```
 
-```
-
 * How to uninstall a driver
 ```python
 from webdriver_installer import FireFox
